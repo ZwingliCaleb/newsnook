@@ -14,17 +14,21 @@ const SearchBar = () => {
     };
   
     return (
-      <form onSubmit={handleSubmit} className="flex items-center">
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchQuery}
-          onChange={handleInputChange}
-          className="px-3 py-2 rounded-l-md focus:outline-none focus:ring focus:border-blue-300"
-        />
-        <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-md focus:outline-none focus:ring focus:border-blue-300">
-          Search
-        </button>
+      <form onSubmit={handleSubmit} className="flex items-center justify-center gap-6">
+        <div>
+            <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={handleInputChange}
+                className="px-10 py-2 rounded-full focus:outline-none focus:ring focus:border-blue-300 w-[600px] h-12"
+            />
+        </div>
+        <div className="font-semibold gap-x-40">
+            <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-2 rounded-lg focus:outline-none focus:ring focus:border-blue-300">
+                Search
+            </button>
+        </div>
       </form>
     );
 }
