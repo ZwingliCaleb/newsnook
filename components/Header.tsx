@@ -6,8 +6,8 @@ const Header: React.FC = () => {
       <nav>
         {/*<a href='/'><img src={} alt="" className=""/></a> */}
         <ul className=" px-20 flex gap-10 space-x-3 justify-end">
-          <li><a href="/" className="hover:text-gray-300">Home</a></li>
-          <li><a href="#" className="hover:text-gray-300">Log in</a></li>
+          <li><a href="/" className="hover:text-gray-300 text-lg font-semibold">Home</a></li>
+          <li><a href="#" className="hover:text-gray-300 text-lg font-semibold">Log in</a></li>
         </ul>
       </nav>
     </header>
