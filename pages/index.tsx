@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import SearchBar from '@/components/SearchBar';
 
@@ -10,8 +11,11 @@ const HomePage: React.FC = () => {
           <div className="justify-center text-center">
            <h1 className="text-3xl font-bold mb-4">NewsNook!</h1>
           </div>
-          <div className="justify-end items-center p-24">
+          <div className="justify-center items-center p-24">
             <SearchBar />
+          </div>
+          <div>
+            <Footer />
           </div>
         </div>
       </main>
