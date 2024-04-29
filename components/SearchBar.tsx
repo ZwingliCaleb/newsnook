@@ -24,7 +24,7 @@ const SearchBar: React.FC = () => {
             placeholder="Find in your area..."
             value={searchQuery}
             onChange={handleInputChange}
-            className="pl-6 pr-10 py-2 rounded-full focus:outline-none font-semibold focus:ring focus:border-blue-300 w-[600px] h-14"
+            className="pl-6 pr-10 py-2 rounded-full focus:outline-none font-semibold focus:ring focus:border-blue-300 w-full sm:w-96 h-14"
           />
           <FontAwesomeIcon icon={faSearch} className="text-gray-600 hover:text-gray-400 absolute right-6 top-1/2 transform -translate-y-1/2" />
         </div>
