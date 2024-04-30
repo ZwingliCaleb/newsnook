@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import React, {useState} from 'react';
 
 const Login: React.FC = () => {
@@ -18,7 +19,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex flex-col justify-center items-center h-screen bg-gray-100">
       <div className="w-3/4 h-3/4 border border-gray-200 shadow-2xl flex flex-wrap relative">
         <div className="w-full md:w-1/2 bg-cover bg-center relative" style={{ backgroundImage: 'url(/images/LoginImage.jpg)' }}>
           <div className="absolute inset-0 bg-black opacity-60"></div>
@@ -63,6 +64,7 @@ const Login: React.FC = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
