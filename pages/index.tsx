@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
           <div className="justify-center text-center">
            <h1 className="text-3xl font-bold mb-4">Newsnook!</h1>
           </div>
-          <div className="justify-center items-center p-48">
+          <div className="justify-center items-center p-4 sm:p-8 md:p-16 lg:p-24 xl:p-32">
             <SearchBar />
           </div>
           <div>

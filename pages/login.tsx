@@ -43,7 +43,7 @@ const Login: React.FC = () => {
               />
             </div>
             {/* Add password field here */}
-            <div className="mb-4">
+            <div className="mb-4 ">
               <label htmlFor="password" className="block text-gray-600">Password</label>
               <input
                 type="password"
