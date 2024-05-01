@@ -33,7 +33,7 @@ const signup: React.FC = () => {
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
           <h2 className="text-3xl font-semibold">Welcome</h2>
-          <p className="text-lg">Please login to access your account</p>
+          <p className="text-lg">One stop spot to Manage all your Vending Work</p>
           <div className="mt-4">
             <a href="#" className="text-blue-500 hover:underline">Sign up</a> | <a href="#" className="text-blue-500 hover:underline">Forgot password?</a>
           </div>

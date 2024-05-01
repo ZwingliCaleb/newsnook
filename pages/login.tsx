@@ -31,11 +31,12 @@ const Login: React.FC = () => {
         <div className="w-full md:w-1/2 bg-cover bg-center relative" style={{ backgroundImage: 'url(/images/LoginImage.jpg)' }}>
           <div className="absolute inset-0 bg-black opacity-60"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
-            <h2 className="text-3xl font-semibold">Welcome</h2>
-            <p className="text-lg">Please login to access your account</p>
+            <h2 className="text-3xl font-bold">Welcome!</h2>
+            <p className="text-lg">Are you a vendor?</p>
+            <p className="text-md font-semibold">One stop spot to manage all your vending functions</p>
           </div>
         </div>
-        <div className="w-full md:w-1/2 bg-green-300 p-8 flex items-center justify-center">
+        <div className="w-full md:w-1/2 bg-green-300 p-6 flex items-center justify-center">
           <form onSubmit={handleSubmit} className="w-full max-w-md">
             <div className="mb-4">
               <label htmlFor="email" className="block text-gray-600">Email</label>
@@ -75,7 +76,7 @@ const Login: React.FC = () => {
             <div className="flex gap-4">
               <button
                 type="submit"
-                className="px-8 py-2 h-12 bg-green-500 text-white font-semibold shadow-md rounded-md focus:outline-none focus:ring focus:border-green-300"
+                className="px-8 py-2 h-12 bg-green-500 hover:bg-green-600 text-white font-semibold shadow-md rounded-md focus:outline-none focus:ring focus:border-green-300"
               >
                Login
               </button>
