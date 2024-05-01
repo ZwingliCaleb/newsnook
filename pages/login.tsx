@@ -33,12 +33,6 @@ const Login: React.FC = () => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
             <h2 className="text-3xl font-semibold">Welcome</h2>
             <p className="text-lg">Please login to access your account</p>
-            <div className="mt-4">
-              <a href="#" className="text-blue-500 hover:underline">Sign up</a> | <a href="#" className="text-blue-500 hover:underline">Forgot password?</a>
-            </div>
-            <button className="mt-4 bg-white text-gray-800 py-2 px-4 rounded-md shadow-md hover:bg-gray-100">
-              Sign in with Google
-            </button>
           </div>
         </div>
         <div className="w-full md:w-1/2 bg-green-300 p-8 flex items-center justify-center">
@@ -64,20 +58,37 @@ const Login: React.FC = () => {
                 className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-green-500"
                 required
               />
+
+              <div className="mt-2">
+                <a href="#" className="text-blue-500 hover:underline">Forgot password?</a>
+              </div>
+
               <button
                 type="button"
                 className="absolute inset-y-0 right-0 pr-3 flex items-center focus:outline-none"
                 onClick={handleTogglePasswordVisibility}
               >
-                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} className="text-gray-600" />
+                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} className="text-gray-600 px-2" />
               </button>
             </div>
-            <button
-              type="submit"
-              className="w-full bg-green-500 text-white px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-green-300"
-            >
-              Login
-            </button>
+
+            <div className="flex gap-4">
+              <button
+                type="submit"
+                className="px-8 py-2 h-12 bg-green-500 text-white font-semibold shadow-md rounded-md focus:outline-none focus:ring focus:border-green-300"
+              >
+               Login
+              </button>
+              <button className=" bg-white text-gray-800 font-semibold py-2 px-8 h-12 rounded-md shadow-md hover:bg-gray-100">
+                Sign in with Google
+              </button>
+            </div>
+
+            <div className="mt-4 flex p-2 gap-2">
+              <p>Have no account yet? </p>
+              <a href="/signup" className="text-blue-500 hover:underline"> Sign up</a>
+            </div>
+            
           </form>
         </div>
       </div>
