@@ -65,6 +65,17 @@ const signup: React.FC = () => {
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-green-500"
               required
             />
+
+            <label htmlFor="password" className="block text-gray-600 mt-4">Retype Password</label>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              id="password"
+              value={password}
+              onChange={handlePasswordChange}
+              className="w-full mt-2px-4 py-2 border rounded-md focus:outline-none focus:border-green-500"
+              required
+            />
+
             <button
               type="button"
               className="absolute inset-y-0 right-0 pr-3 flex items-center focus:outline-none"
