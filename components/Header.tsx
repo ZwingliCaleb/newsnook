@@ -10,12 +10,12 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="py-6 px-10 bg-gradient-to-r from-slate-400 via-sky-200 to-sky-800 text-white relative">
+    <header className="py-6 px-10 bg-gradient-to-r from-slate-400 via-sky-300 to-sky-800 text-white relative">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div>
           <a href="/">
-            <img src="icons/NewsnookLogo.svg" alt="Logo" width={60} />
+            <img src="icons/NewsnookLogo.svg" alt="Logo" width={70} />
           </a>
         </div>
         
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
       </div>
 
       {/* Mobile menu */}
-      <div className={`sm:hidden absolute top-full right-0 mt-2 w-48 bg-gray-800 rounded-lg ${isMenuOpen ? 'block' : 'hidden'} backdrop-filter backdrop-blur-lg bg-opacity-50`}>
+      <div className={`sm:hidden absolute top-full right-0 mt-0 mr-2 w-40 bg-sky-900 rounded-lg ${isMenuOpen ? 'block' : 'hidden'} backdrop-filter backdrop-blur-sm bg-opacity-70`}>
         <ul className="px-4 py-4 space-y-4 ">
           <li><a href="/" className="hover:text-gray-300 text-lg font-semibold">Home</a></li>
           <li><a href="/login" className="hover:text-gray-300 text-lg font-semibold">Sign Up</a></li>
