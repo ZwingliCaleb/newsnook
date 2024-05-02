@@ -76,7 +76,7 @@ const Login: React.FC = () => {
             <div className="flex gap-4">
               <button
                 type="submit"
-                className="px-8 py-2 h-12 bg-green-500 hover:bg-green-600 text-white font-semibold shadow-md rounded-md focus:outline-none focus:ring focus:border-green-300"
+                className="px-8 py-2 h-12 bg-green-500 hover:bg-green-600 text-white  font-semibold shadow-md rounded-md focus:outline-none focus:ring focus:border-green-300"
               >
                Login
               </button>
