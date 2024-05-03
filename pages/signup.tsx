@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Footer from '@/components/Footer'; 
+import Footer from '@/components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import PasswordStrengthMeter from '@/components/PasswordStrengthMeter';
@@ -9,6 +9,7 @@ const Signup: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [isPasswordTyped, setIsPasswordTyped] = useState(false);
 
   const handleFullNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFullName(e.target.value);
@@ -20,6 +21,7 @@ const Signup: React.FC = () => {
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
+    setIsPasswordTyped(e.target.value.length > 0);
   };
 
   const handleTogglePasswordVisibility = () => {
@@ -84,7 +86,7 @@ const Signup: React.FC = () => {
                   <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} className="text-gray-600" />
                 </button>
               </div>
-              <PasswordStrengthMeter password={password} />
+              {isPasswordTyped && <PasswordStrengthMeter password={password} />}
             </div>
             <button
               type="submit"

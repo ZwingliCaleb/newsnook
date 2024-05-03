@@ -1,5 +1,5 @@
 import React from 'react';
-import zxcvbn from 'zxcvbn';
+import zxcvbn from 'zxcvbn'
 
 interface PasswordStrengthMeterProps {
     password: string;  
@@ -15,16 +15,16 @@ const PasswordStrengthMeter: React.FC<PasswordStrengthMeterProps> = ({ password 
         switch (score) {
             case 0:
                 return 'red';
-                case 1:
-                    return 'red';
-                    case 2:
-                        return 'orange';
-                        case 3:
-                            return 'yellow';
-                            case 4:
-                                return 'green';
-                                default:
-                                    return 'black';
+            case 1:
+                return 'red';
+            case 2:
+                return 'orange';
+            case 3:
+                return 'yellow';
+            case 4:
+                return 'green';
+            default:
+                return 'black';
         }
     }
 
