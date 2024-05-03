@@ -36,7 +36,7 @@ const Login: React.FC = () => {
             <p className="text-md font-semibold">One stop spot to manage all your vending functions</p>
           </div>
         </div>
-        <div className="w-full md:w-1/2 bg-gradient-to-t from-slate-200 to-sky-200 p-6 flex items-center justify-center">
+        <div className="w-full md:w-1/2 bg-gradient-to-t from-slate-200 to-sky-400 p-6 flex items-center justify-center">
           <form onSubmit={handleSubmit} className="w-full max-w-md">
             <div className="mb-4">
               <label htmlFor="email" className="block font-semibold text-gray-700">Email</label>

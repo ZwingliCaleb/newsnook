@@ -39,7 +39,7 @@ const Header: React.FC = () => {
       <div className={`sm:hidden absolute top-full right-0 mt-0 mr-2 w-40 bg-sky-900 rounded-lg ${isMenuOpen ? 'block' : 'hidden'} backdrop-filter backdrop-blur-sm bg-opacity-70`}>
         <ul className="px-4 py-4 space-y-4 ">
           <li><a href="/" className="hover:text-gray-300 text-lg font-semibold">Home</a></li>
-          <li><a href="/login" className="hover:text-gray-300 text-lg font-semibold">Sign Up</a></li>
+          <li><a href="/signup" className="hover:text-gray-300 text-lg font-semibold">Sign Up</a></li>
         </ul>
       </div>
     </header>

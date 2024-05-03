@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Footer from '@/components/Footer'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import PasswordStrengthMeter from '@/components/PasswordStrengthMeter';
 
 const Signup: React.FC = () => {
   const [fullName, setFullName] = useState('');
@@ -40,7 +41,7 @@ const Signup: React.FC = () => {
             <p className="text-lg">One stop spot to Manage all your Vending Work</p>
           </div>
         </div>
-        <div className="w-full md:w-1/2 bg-gradient-to-b from-sky-100 to-slate-300 p-8 flex items-center justify-center">
+        <div className="w-full md:w-1/2 bg-gradient-to-b from-sky-100 to-slate-400 p-8 flex items-center justify-center">
           <form onSubmit={handleSubmit} className="w-full max-w-md">
             <div className="mb-4">
               <label htmlFor="fullName" className="block text-gray-700 font-semibold">Full Name</label>
@@ -83,6 +84,7 @@ const Signup: React.FC = () => {
                   <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} className="text-gray-600" />
                 </button>
               </div>
+              <PasswordStrengthMeter password={password} />
             </div>
             <button
               type="submit"
