@@ -27,21 +27,25 @@ const DashboardOverview: React.FC = () => {
         <div className="p-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Profile Card */}
-            <div className="bg-white rounded-lg shadow-md p-4">
-              <h2 className="text-lg font-semibold mb-2">Profile</h2>
-              <p>View and edit your profile information.</p>
-              {/* Add a button to navigate to the Profile page */}
+            <div className="bg-slate-300 rounded-lg shadow-md p-8">
+              <div>
+               <h2 className="text-lg font-semibold mb-2">Profile</h2>
+               <p>View and edit your profile information.</p>
+              </div>
+              <div className="py-4">
+                <button className="p-2 bg-sky-700 font-semibold rounded-lg shadow-md text-gray-100 hover:bg-sky-900">Profile</button>
+              </div>
             </div>
 
             {/* Stock Management Card */}
-            <div className="bg-white rounded-lg shadow-md p-4">
+            <div className="bg-slate-300 rounded-lg shadow-md p-8">
               <h2 className="text-lg font-semibold mb-2">Stock Management</h2>
               <p>Add, edit, or delete newspapers and their details.</p>
               {/* Add a button to navigate to the Stock Management page */}
             </div>
 
             {/* Sales Analytics Card */}
-            <div className="bg-white rounded-lg shadow-md p-4">
+            <div className="bg-slate-300 rounded-lg shadow-md p-8">
               <h2 className="text-lg font-semibold mb-2">Sales Analytics</h2>
               <p>View insights and analytics on your sales.</p>
               {/* Add a button to navigate to the Sales Analytics page */}

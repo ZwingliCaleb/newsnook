@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -12,6 +11,10 @@ const config: Config = {
       fontFamily: {
         Raleway: ['Raleway', 'sans-serif'],
         Montserrat: ['Montserrat', 'sans-serif'],
+        Roboto: ['Roboto', 'sans-serif'],
+        Lato: ['Lato', 'sans-serif'],
+        Open_Sans: ['Open Sans', 'sans-serif'],
+        Mulish: ['Mulish', 'sans-serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

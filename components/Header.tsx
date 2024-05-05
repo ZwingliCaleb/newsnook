@@ -24,8 +24,8 @@ const Header: React.FC = () => {
         {/* Navigation links for larger screens */}
         <nav className="hidden sm:flex gap-10 space-x-3 items-center px-12">
           <ul className="flex gap-20">
-            <Link href="/" className="hover:text-gray-300 text-lg font-semibold">Home</Link>
-            <Link href="/signup" className="hover:text-gray-300 text-lg font-semibold">Sign Up</Link>
+            <Link href="/" className="hover:text-gray-300 p-2 text-lg font-semibold">Home</Link>
+            <Link href="/signup" className="hover:text-gray-300 text-lg p-2 hover:bg-sky-800 rounded font-semibold">Sign Up</Link>
           </ul>
         </nav>
 
