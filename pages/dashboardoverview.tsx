@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from '@/components/Sidebar'; // Assuming you have a Sidebar component
 import Avatar from '@/components/Avatar'; // Assuming you have an Avatar component
+import Link from 'next/link';
 
 const DashboardOverview: React.FC = () => {
   // Mock vendor information
@@ -8,7 +9,7 @@ const DashboardOverview: React.FC = () => {
   const avatarUrl = "/images/avatar.jpg"; // Replace with actual avatar URL
 
   return (
-    <div className="flex h-screen">
+    <div className="p-2 flex h-screen">
       {/* Sidebar */}
       <Sidebar />
 
@@ -27,25 +28,31 @@ const DashboardOverview: React.FC = () => {
         <div className="p-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Profile Card */}
-            <div className="bg-slate-300 rounded-lg shadow-md p-8">
+            <div className="bg-slate-400 rounded-lg shadow-md flex flex-col p-6 relative">
               <div>
-               <h2 className="text-lg font-semibold mb-2">Profile</h2>
-               <p>View and edit your profile information.</p>
+                <h2 className="text-lg font-semibold mb-2">Profile</h2>
+                <p>View and edit your profile information.</p>
               </div>
-              <div className="py-4">
-                <button className="p-2 bg-sky-700 font-semibold rounded-lg shadow-md text-gray-100 hover:bg-sky-900">Profile</button>
+              <div className=" bottom-4 right-4 mt-4">
+                <Link href="/profile">
+                  <button className="p-2 bg-sky-700 font-semibold rounded-lg shadow-md text-gray-100 hover:bg-sky-900">Profile</button>
+                </Link>
               </div>
             </div>
 
             {/* Stock Management Card */}
-            <div className="bg-slate-300 rounded-lg shadow-md p-8">
+            <div className="bg-slate-400 rounded-lg shadow-md p-6">
               <h2 className="text-lg font-semibold mb-2">Stock Management</h2>
-              <p>Add, edit, or delete newspapers and their details.</p>
-              {/* Add a button to navigate to the Stock Management page */}
+              <p className="mb-4">Add, edit, or delete newspapers and their details.</p>
+              <div>
+                <Link href="/stockmanager">
+                  <button className="p-2 bg-sky-700 font-semibold rounded-lg shadow-md text-gray-100 hover:bg-sky-900">Manage Stock</button>
+                </Link>
+              </div>
             </div>
 
             {/* Sales Analytics Card */}
-            <div className="bg-slate-300 rounded-lg shadow-md p-8">
+            <div className="bg-slate-400 rounded-lg shadow-md p-6">
               <h2 className="text-lg font-semibold mb-2">Sales Analytics</h2>
               <p>View insights and analytics on your sales.</p>
               {/* Add a button to navigate to the Sales Analytics page */}
