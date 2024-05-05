@@ -2,6 +2,8 @@ import Footer from '@/components/Footer';
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -82,14 +84,14 @@ const Login: React.FC = () => {
               </button>
               <p className="mt-4 text-center font-bold">or</p>
               <button className="bg-white mt-4 text-gray-800 font-semibold w-full py-2 rounded-md shadow-md hover:bg-gray-100">
-                <img src="/icons/google.svg" alt="Google Logo" className="w-5 h-5 inline-block mr-2" />
+                <Image src="/icons/google.svg" alt="Google Logo" className="w-5 h-5 inline-block mr-2" width={40} height={40}/>
                 Sign in with Google
               </button>
             </div>
 
             <div className="mt-4 flex p-2 gap-2">
               <p>Have no account yet? </p>
-              <a href="/signup" className="font-semibold text-blue-700 hover:underline"> Sign up</a>
+              <Link href="/signup" className="font-semibold text-blue-700 hover:underline"> Sign up</Link>
             </div>
             
           </form>

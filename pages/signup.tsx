@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import PasswordStrengthMeter from '@/components/PasswordStrengthMeter';
+import Image from 'next/image';
 
 const Signup: React.FC = () => {
   const [fullName, setFullName] = useState('');
@@ -96,7 +97,7 @@ const Signup: React.FC = () => {
             </button>
             <p className="text-center p-2 font-semibold"> or </p>
             <button className="mt- bg-white text-gray-800 font-semibold py-2 rounded-md shadow-md hover:bg-gray-100 w-full">
-              <img src="/icons/google.svg" alt="Google Logo" className="w-5 h-5 inline-block mr-2" />
+              <Image src="/icons/google.svg" alt="Google Logo" className="w-5 h-5 inline-block mr-2" width={40} height={40} />
               Sign up with Google
             </button>
             <p className="mt-4 text-gray-600">Already have an account? <a href="login" className="font-semibold text-blue-700 hover:underline">Login</a></p>
