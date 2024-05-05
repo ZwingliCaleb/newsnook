@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        Raleway: ["Raleway", "sans-serif"],
-        Montserrat: ["Montserrat", "sans-serif"],
+        Raleway: ['Raleway', 'sans-serif'],
+        Montserrat: ['Montserrat', 'sans-serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
