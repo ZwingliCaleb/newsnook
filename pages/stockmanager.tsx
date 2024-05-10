@@ -1,9 +1,6 @@
 import React from 'react';
 import NextImage from 'next/image'; // Import Next.js Image component
 import Sidebar from '@/components/Sidebar'; // Import Sidebar component
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import Link from 'next/link';
 
 const StockManagerPage: React.FC = () => {
   // Dummy data for demonstration
@@ -24,13 +21,14 @@ const StockManagerPage: React.FC = () => {
   ];
 
   return (
-    <div className="flex h-screen border-2 p-2">
+    <div className="flex h-screen p-2">
       {/* Sidebar */}
       <Sidebar />
 
       {/* Main Content */}
-      <div className="flex flex-col flex-1 ml-2">
-        <h1 className="text-2xl font-semibold mb-4 ml-2">Manage Stock</h1>
+      <div className="flex flex-col flex-1">
+        <h1 className="text-2xl font-semibold ml-2 mb-4">Manage Stock</h1>
+        {/* Table content */}
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
