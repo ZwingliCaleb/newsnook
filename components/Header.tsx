@@ -25,7 +25,7 @@ const Header: React.FC = () => {
         <nav className="hidden sm:flex gap-10 space-x-3 items-center px-12">
           <ul className="flex gap-20">
             <Link href="/" className="hover:text-gray-300 p-2 text-lg font-semibold">Home</Link>
-            <Link href="/signup" className="hover:text-gray-300 text-lg p-2 hover:bg-sky-800 rounded font-semibold">Sign Up</Link>
+            <Link href="/signup" className="hover:text-gray-300 text-lg p-2 font-semibold">Sign Up</Link>
           </ul>
         </nav>
 
@@ -40,8 +40,12 @@ const Header: React.FC = () => {
       {/* Mobile menu */}
       <div className={`sm:hidden absolute top-full right-0 mt-0 mr-2 w-40 bg-sky-900 rounded-lg ${isMenuOpen ? 'block' : 'hidden'} backdrop-filter backdrop-blur-sm bg-opacity-70`}>
         <ul className="px-4 py-4 space-y-4 ">
-          <Link href="/" className="hover:text-gray-300 text-lg font-semibold">Home</Link>
-          <Link href="/signup" className="hover:text-gray-300 text-lg font-semibold">Sign Up</Link>
+          <li>
+            <Link href="/" className="hover:text-gray-300 text-lg font-semibold">Home</Link>
+          </li>
+          <li>
+            <Link href="/signup" className="hover:text-gray-300 text-lg font-semibold">Sign Up</Link>
+          </li>
         </ul>
       </div>
     </header>

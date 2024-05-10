@@ -11,7 +11,7 @@ const Profile: React.FC = () => {
   const [vendorEmail, setVendorEmail] = useState("john@example.com");
   const [vendorLocation, setVendorLocation] = useState("New York, USA");
   const [vendorPhone, setVendorPhone] = useState("+1 234 567 890");
-  const [vendorBio, setVendorBio] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis ac purus ultricies ultricies. Nullam nec purus nec nunc ultricies ultricies.");
+  const [vendorBio, setVendorBio] = useState("Lorem ipsum dolor sit amet.");
   const [vendorBusiness, setVendorBusiness] = useState("NewsStand");
   const [vendorBusinessType, setVendorBusinessType] = useState("News Agency");
   const [vendorHours, setVendorHours] = useState("Mon-Fri: 9:00 AM - 5:00 PM");
@@ -45,7 +45,7 @@ const Profile: React.FC = () => {
             <p className="text-lg font-semibold">Business: {vendorBusiness}</p>
             <p className="text-lg font-semibold">Business Type: {vendorBusinessType}</p>
             <p className="text-lg font-semibold">Hours: {vendorHours}</p>
-            <button onClick={handleEditBioClick} className="bg-blue-600 text-white px-4 py-2 rounded mt-4">
+            <button onClick={handleEditBioClick} className="bg-blue-600 text-white px-4 py-2 shadow-md rounded mt-4">
               Edit Bio
             </button>
           </div>
