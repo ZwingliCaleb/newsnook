@@ -5,12 +5,17 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import LogoutConfirmationModal from './LogoutConfirmationModal';
+import { useRouter } from 'next/router';
 
 const Sidebar = () => {
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+  const router = useRouter();
+
   const handleLogout = () => {
     console.log("Logout");
     setIsLogoutModalOpen(false);
+
+    router.push('/');
   };
 
   return (
