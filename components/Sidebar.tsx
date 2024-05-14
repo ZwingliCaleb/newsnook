@@ -36,7 +36,7 @@ const Sidebar = () => {
             <Link href="/stockmanager" className="block py-2 px-4 rounded hover:bg-gray-700">Stock</Link>
           </li>
           <li>
-            <Link href="/settings" className="block py-2 px-4 rounded hover:bg-gray-700">Settings</Link>
+            <Link href="/settingspage" className="block py-2 px-4 rounded hover:bg-gray-700">Settings</Link>
           </li>
         </ul>
       </div>
