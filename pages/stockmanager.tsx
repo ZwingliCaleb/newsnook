@@ -1,6 +1,7 @@
 import React from 'react';
 import NextImage from 'next/image'; // Import Next.js Image component
 import Sidebar from '@/components/Sidebar'; // Import Sidebar component
+import DashboardLayout from '@/layouts/DashboardLayouts';
 
 const StockManagerPage: React.FC = () => {
   // Dummy data for demonstration
@@ -21,7 +22,8 @@ const StockManagerPage: React.FC = () => {
   ];
 
   return (
-    <div className="flex h-screen p-2">
+    <DashboardLayout>
+      <div className="flex h-screen p-2">
       {/* Sidebar */}
       <Sidebar />
 
@@ -59,6 +61,7 @@ const StockManagerPage: React.FC = () => {
         </table>
       </div>
     </div>
+    </DashboardLayout>
   );
 };
 

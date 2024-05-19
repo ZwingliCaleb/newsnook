@@ -1,9 +1,21 @@
 import Sidebar from '@/components/Sidebar';
+import { useTheme } from '@/context/ThemeContext';
+import DashboardLayout from '@/layouts/DashboardLayouts';
 import React from 'react';
 
 const SettingsPage: React.FC = () => {
+  const { theme, toggleTheme } = useTheme();
+
+  const handleThemeChange = () => {
+    const selectedTheme = event.target.value;
+    if (selectedTheme !== theme) {
+      toggleTheme();
+    }
+  };
+
   return (
-    <div className="flex h-screen p-2">
+    <DashboardLayout>
+      <div className="flex h-screen p-2">
       {/* Sidebar */}
       <Sidebar />
 
@@ -40,7 +52,7 @@ const SettingsPage: React.FC = () => {
             <div className="mb-4">
               {/* Theme Selection Dropdown */}
               <label className="block text-sm font-medium text-gray-700">Theme</label>
-              <select className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              <select value={theme} onChange={handleThemeChange} className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 <option>Light</option>
                 <option>Dark</option>
               </select>
@@ -55,6 +67,7 @@ const SettingsPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </DashboardLayout>
   );
 };
 

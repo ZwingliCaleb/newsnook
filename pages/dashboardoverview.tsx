@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from '@/components/Sidebar'; // Assuming you have a Sidebar component
 import Avatar from '@/components/Avatar'; // Assuming you have an Avatar component
 import Link from 'next/link';
+import DashboardLayout from '@/layouts/DashboardLayouts';
 
 const DashboardOverview: React.FC = () => {
   // Mock vendor information
@@ -9,7 +10,8 @@ const DashboardOverview: React.FC = () => {
   const avatarUrl = "/images/avatar.jpg"; // Replace with actual avatar URL
 
   return (
-    <div className="p-2 flex h-screen">
+    <DashboardLayout>
+      <div className="p-2 flex h-screen">
       {/* Sidebar */}
       <Sidebar />
 
@@ -65,6 +67,7 @@ const DashboardOverview: React.FC = () => {
         </div>
       </div>
     </div>
+  </DashboardLayout>
   );
 };
 
