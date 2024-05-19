@@ -1,12 +1,12 @@
+// pages/settingspage.tsx
 import Sidebar from '@/components/Sidebar';
 import { useTheme } from '@/context/ThemeContext';
-import DashboardLayout from '@/layouts/DashboardLayouts';
 import React from 'react';
 
 const SettingsPage: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
 
-  const handleThemeChange = () => {
+  const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedTheme = event.target.value;
     if (selectedTheme !== theme) {
       toggleTheme();
@@ -14,8 +14,7 @@ const SettingsPage: React.FC = () => {
   };
 
   return (
-    <DashboardLayout>
-      <div className="flex h-screen p-2">
+    <div className="flex h-screen p-2">
       {/* Sidebar */}
       <Sidebar />
 
@@ -33,18 +32,18 @@ const SettingsPage: React.FC = () => {
               <input type="password" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter new password"/>
             </div>
             <div className="mb-4">
-              {/* confirm Change Password Form */}
+              {/* Confirm Change Password Form */}
               <label className="block text-sm font-medium text-gray-700">Confirm Password</label>
               <input type="password" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Confirm new password"/>
             </div>
             {/* Update Email Component */}
             <div>
               {/* Update Email Form */}
-              <label className="block text-sm font-medium text-gray-700">Update Email Adress</label>
+              <label className="block text-sm font-medium text-gray-700">Update Email Address</label>
               <input type="email" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter new email"/>
             </div>
           </div>
-          
+
           {/* Appearance Settings */}
           <div>
             <h2 className="text-lg font-semibold mb-2">Appearance Settings</h2>
@@ -53,8 +52,8 @@ const SettingsPage: React.FC = () => {
               {/* Theme Selection Dropdown */}
               <label className="block text-sm font-medium text-gray-700">Theme</label>
               <select value={theme} onChange={handleThemeChange} className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                <option>Light</option>
-                <option>Dark</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
               </select>
             </div>
             {/* Font Size Adjustment Component */}
@@ -67,7 +66,6 @@ const SettingsPage: React.FC = () => {
         </div>
       </div>
     </div>
-    </DashboardLayout>
   );
 };
 

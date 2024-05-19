@@ -2,7 +2,7 @@ import React from 'react';
 import Sidebar from '@/components/Sidebar'; // Assuming you have a Sidebar component
 import Avatar from '@/components/Avatar'; // Assuming you have an Avatar component
 import Link from 'next/link';
-import DashboardLayout from '@/layouts/DashboardLayouts';
+import DashboardLayout from '@/layouts/DashboardLayout';
 
 const DashboardOverview: React.FC = () => {
   // Mock vendor information

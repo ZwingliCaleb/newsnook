@@ -1,7 +1,7 @@
 import React from 'react';
 import NextImage from 'next/image'; // Import Next.js Image component
 import Sidebar from '@/components/Sidebar'; // Import Sidebar component
-import DashboardLayout from '@/layouts/DashboardLayouts';
+import DashboardLayout from '@/layouts/DashboardLayout';
 
 const StockManagerPage: React.FC = () => {
   // Dummy data for demonstration
