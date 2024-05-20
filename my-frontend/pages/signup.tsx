@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from '@/components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import PasswordStrengthMeter from '@/components/PasswordStrengthMeter';
 import Image from 'next/image';
 import axios from 'axios';
+import { useRouter } from 'next/router'; // Import the useRouter hook
 
 const Signup: React.FC = () => {
   const [fullName, setFullName] = useState('');
@@ -12,6 +13,8 @@ const Signup: React.FC = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isPasswordTyped, setIsPasswordTyped] = useState(false);
+  const [signupSuccess, setSignupSuccess] = useState(false); // Add state for signup success
+  const router = useRouter(); // Initialize useRouter hook
 
   const handleFullNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFullName(e.target.value);
@@ -40,11 +43,18 @@ const Signup: React.FC = () => {
         password
       });
       console.log('Signup successful:', response.data);
-      // store token and redirect to dashboard
+      setSignupSuccess(true); // Set signup success state to true
     } catch (error) {
       console.error('Error signing up:', error.response ? error.response.data : error.message);
     }
   };
+
+  // Use useEffect to redirect to login page when signupSuccess state changes
+  useEffect(() => {
+    if (signupSuccess) {
+      router.push('/login'); // Redirect to login page
+    }
+  }, [signupSuccess]); // Trigger useEffect when signupSuccess state changes
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gray-100">
