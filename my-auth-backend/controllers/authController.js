@@ -1,6 +1,6 @@
-const User = require('express');
+const User = require('../models/User');
 const bcrypt = require('bcryptjs');
-const jwt = require('jswebtoken');
+const jwt = require('jsonwebtoken');
 
 exports.registerUser = async (req, res) => {
     const { fullName, email, password } = req.body;
@@ -62,4 +62,4 @@ exports.loginUser = async (req, res) => {
         console.error(err.message);
         res.status(500).send('Server error');
     }
-};
+}; 

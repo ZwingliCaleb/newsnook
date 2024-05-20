@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import PasswordStrengthMeter from '@/components/PasswordStrengthMeter';
 import Image from 'next/image';
+import axios from 'axios';
 
 const Signup: React.FC = () => {
   const [fullName, setFullName] = useState('');
@@ -29,21 +30,19 @@ const Signup: React.FC = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
     try {
-      const res = await fetch('/api/auth/signup', {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify({ fullName, email, password }),
+      const response = await axios.post('http://localhost:5000/api/auth/signup', {
+        fullName,
+        email,
+        password
       });
-      const data = await res.json();
-      console.log('Signup successful', data);
-      //store token and redirect to dashboard
+      console.log('Signup successful:', response.data);
+      // store token and redirect to dashboard
     } catch (error) {
-      console.error('Error signing up:', error);
+      console.error('Error signing up:', error.response ? error.response.data : error.message);
     }
   };
 
