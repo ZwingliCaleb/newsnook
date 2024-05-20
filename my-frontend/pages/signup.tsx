@@ -29,9 +29,22 @@ const Signup: React.FC = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Signup credentials:', { fullName, email, password });
+    try {
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({ fullName, email, password }),
+      });
+      const data = await res.json();
+      console.log('Signup successful', data);
+      //store token and redirect to dashboard
+    } catch (error) {
+      console.error('Error signing up:', error);
+    }
   };
 
   return (
