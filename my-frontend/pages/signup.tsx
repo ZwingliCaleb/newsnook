@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Footer from '@/components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import PasswordStrengthMeter from '@/components/PasswordStrengthMeter';
 import Image from 'next/image';
 import axios from 'axios';
-import { useRouter } from 'next/router'; // Import the useRouter hook
+import { useRouter } from 'next/router';
 
 const Signup: React.FC = () => {
   const [fullName, setFullName] = useState('');
@@ -13,8 +13,8 @@ const Signup: React.FC = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isPasswordTyped, setIsPasswordTyped] = useState(false);
-  const [signupSuccess, setSignupSuccess] = useState(false); // Add state for signup success
-  const router = useRouter(); // Initialize useRouter hook
+  const [message, setMessage] = useState('');
+  const router = useRouter();
 
   const handleFullNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFullName(e.target.value);
@@ -42,19 +42,15 @@ const Signup: React.FC = () => {
         email,
         password
       });
-      console.log('Signup successful:', response.data);
-      setSignupSuccess(true); // Set signup success state to true
+      setMessage('Signup successful! Redirecting to login...');
+      setTimeout(() => {
+        router.push('/login');
+      }, 2000);
     } catch (error) {
       console.error('Error signing up:', error.response ? error.response.data : error.message);
+      setMessage(error.response?.data?.msg || 'Signup failed. Please try again.');
     }
   };
-
-  // Use useEffect to redirect to login page when signupSuccess state changes
-  useEffect(() => {
-    if (signupSuccess) {
-      router.push('/login'); // Redirect to login page
-    }
-  }, [signupSuccess]); // Trigger useEffect when signupSuccess state changes
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gray-100">
@@ -127,6 +123,13 @@ const Signup: React.FC = () => {
         </div>
       </div>
       <Footer />
+      {message && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded shadow-lg">
+            <p>{message}</p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

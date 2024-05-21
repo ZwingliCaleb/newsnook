@@ -7,10 +7,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 const Login: React.FC = () => {
-  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const router = useRouter();
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -35,19 +36,19 @@ const Login: React.FC = () => {
         body: JSON.stringify({ email, password }),
       });
 
-      if (!res.ok) {
-        if (res.status === 401) {
-          throw new Error('Invalid email or password');
-        }
-        throw new Error('Something went wrong')
-      }
-
       const data = await res.json();
-      console.log('Login response:', data); // Log the response from the server
-      // Redirect to dashboard upon successful login
-      router.push('/dashboardoverview');
+
+      if (res.ok) {
+        console.log('Login successful', data);
+        // Store token in localStorage or context
+        localStorage.setItem('token', data.token);
+        router.push('/dashboardoverview');
+      } else {
+        setErrorMessage(data.msg || 'Invalid credentials');
+      }
     } catch (error) {
-      console.error('Error logging in', error.message);
+      console.error('Error logging in', error);
+      setErrorMessage('An error occurred. Please try again.');
     }
   };
 
@@ -98,26 +99,28 @@ const Login: React.FC = () => {
                 <a href="#" className="text-blue-600 hover:underline">Forgot password?</a>
               </div>
             </div>
-
+            {errorMessage && (
+              <div className="mb-4 text-red-600 font-semibold">
+                {errorMessage}
+              </div>
+            )}
             <div className="">
               <button
                 type="submit"
-                className="py-2 bg-blue-500 hover:bg-blue-600 text-white  font-semibold shadow-md rounded-md focus:outline-none focus:ring focus:border-green-300 w-full"
+                className="py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold shadow-md rounded-md focus:outline-none focus:ring focus:border-green-300 w-full"
               >
-               Login
+                Login
               </button>
               <p className="mt-4 text-center font-bold">or</p>
               <button className="bg-white mt-4 text-gray-800 font-semibold w-full py-2 rounded-md shadow-md hover:bg-gray-100">
-                <Image src="/icons/google.svg" alt="Google Logo" className="w-5 h-5 inline-block mr-2" width={40} height={40}/>
+                <Image src="/icons/google.svg" alt="Google Logo" className="w-5 h-5 inline-block mr-2" width={40} height={40} />
                 Sign in with Google
               </button>
             </div>
-
             <div className="mt-4 flex p-2 gap-2">
               <p>Have no account yet? </p>
               <Link href="/signup" className="font-semibold text-blue-700 hover:underline"> Sign up</Link>
             </div>
-            
           </form>
         </div>
       </div>
