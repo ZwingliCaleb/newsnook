@@ -1,16 +1,16 @@
 import Footer from '@/components/Footer';
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [error, setError] = useState('');
   const router = useRouter();
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,20 +35,17 @@ const Login: React.FC = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-
       const data = await res.json();
-
       if (res.ok) {
         console.log('Login successful', data);
-        // Store token in localStorage or context
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
         router.push('/dashboardoverview');
       } else {
-        setErrorMessage(data.msg || 'Invalid credentials');
+        setError(data.msg || 'Login failed');
       }
     } catch (error) {
-      console.error('Error logging in', error);
-      setErrorMessage('An error occurred. Please try again.');
+      setError('An error occurred during login');
+      console.error('Error logging in:', error);
     }
   };
 
@@ -99,15 +96,11 @@ const Login: React.FC = () => {
                 <a href="#" className="text-blue-600 hover:underline">Forgot password?</a>
               </div>
             </div>
-            {errorMessage && (
-              <div className="mb-4 text-red-600 font-semibold">
-                {errorMessage}
-              </div>
-            )}
+            {error && <p className="text-red-500">{error}</p>}
             <div className="">
               <button
                 type="submit"
-                className="py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold shadow-md rounded-md focus:outline-none focus:ring focus:border-green-300 w-full"
+                className="py-2 bg-blue-500 hover:bg-blue-600 text-white  font-semibold shadow-md rounded-md focus:outline-none focus:ring focus:border-green-300 w-full"
               >
                 Login
               </button>
@@ -117,6 +110,7 @@ const Login: React.FC = () => {
                 Sign in with Google
               </button>
             </div>
+
             <div className="mt-4 flex p-2 gap-2">
               <p>Have no account yet? </p>
               <Link href="/signup" className="font-semibold text-blue-700 hover:underline"> Sign up</Link>
